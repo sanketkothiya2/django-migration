@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Details</title>
+</head>
+<body>
+    <h1>Category: {{ category.name }}</h1>
+    <p>Warehouse Location: {{ category.warehouse_location }}</p>
+
+    <h2>Products in this Category</h2>
+    {% for product in products %}
+        <p>{{ product.name }} - ${{ product.price }}</p>
+    {% endfor %}
+</body>
+</html>

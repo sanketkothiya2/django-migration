@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store - Categories and Products</title>
+</head>
+<body>
+    <h1>Categories</h1>
+    {% for category in categories %}
+        <p>{{ category.id }}: {{ category.name }}</p>
+    {% endfor %}
+
+    <h1>Top 5 Products (by Price)</h1>
+    {% for product in products %}
+        <p>{{ product.name }} - ${{ product.price }}</p>
+    {% endfor %}
+</body>
+</html>
