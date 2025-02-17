@@ -1,16 +1,144 @@
+/* Import a modern, clean font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #f4f4f4;
-    color: #333;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #333;
+  line-height: 1.6;
 }
 
-h1 {
-    font-size: 24px;
-    color: #444;
-    text-align: center;
+/* Header styling with responsive navigation */
+header {
+  background: #343a40;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  position: relative;
 }
 
-.hbar1 {
-    display: inline;
-    margin: 15px;
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffc107;
+}
+
+/* Main container styling */
+.container {
+  max-width: 1200px;
+  margin: 30px auto 80px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section and heading styles */
+section {
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* List styling for categories and products */
+ul.category-list,
+ul.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.category-list li,
+ul.product-list li {
+  padding: 12px 20px;
+  margin: 8px 0;
+  background: #f1f1f1;
+  border-left: 5px solid #007bff;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+ul.category-list li:hover,
+ul.product-list li:hover {
+  transform: translateX(5px);
+  background: #e9ecef;
+}
+
+/* Link styles */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Message styling */
+.messages {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ffc107;
+  background: #fff3cd;
+  color: #856404;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Footer styling fixed at the bottom */
+footer {
+  background: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  nav ul li {
+    margin: 0 10px;
+  }
+  .container {
+    margin: 20px 10px 100px 10px;
+    padding: 15px;
+  }
 }

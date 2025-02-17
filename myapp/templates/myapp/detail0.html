@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Category Details</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Category Details</title>
 </head>
 <body>
-    <h2>Category: {{ category.name }}</h2>
-    <p>Warehouse: {{ category.warehouse }}</p>
-    <h3>Products:</h3>
+  <h2>Category: {{ category.name }}</h2>
+  <p>Warehouse: {{ category.warehouse }}</p>
+  <h3>Products:</h3>
+  {% if products %}
     <ul>
-        {% for product in products %}
-            <li>{{ product.name }}</li>
-        {% endfor %}
+      {% for product in products %}
+        <li>{{ product.name }}</li>
+      {% endfor %}
     </ul>
-    <p><a href="{% url 'myapp:index' %}">Back to Home</a></p>
+  {% else %}
+    <p>No products available.</p>
+  {% endif %}
+  <p><a href="{% url 'myapp:index' %}">Back to Home</a></p>
 </body>
 </html>

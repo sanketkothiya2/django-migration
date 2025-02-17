@@ -1,13 +1,15 @@
 {% extends 'myapp/base.html' %}
 {% block body_block %}
-    {% if cat_list %}
-        <h2>List of Categories</h2>
-        <ol>
-            {% for cat in cat_list %}
-                <li><a href="{% url 'myapp:detail' cat.id %}">{{ cat.name }}</a></li>
-            {% endfor %}
-        </ol>
-    {% else %}
-        <strong>No categories available!</strong>
-    {% endif %}
+    <section>
+        <h2>Available Categories</h2>
+        {% if cat_list %}
+            <ul class="category-list">
+                {% for cat in cat_list %}
+                    <li><a href="{% url 'myapp:detail' cat.id %}">{{ cat.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No categories available.</p>
+        {% endif %}
+    </section>
 {% endblock %}
