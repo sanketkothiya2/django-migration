@@ -1,0 +1,16 @@
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    color: #444;
+    text-align: center;
+}
+
+.hbar1 {
+    display: inline;
+    margin: 15px;
+}

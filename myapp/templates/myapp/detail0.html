@@ -1,6 +1,10 @@
-{% extends 'myapp/base.html' %}
-{% block title %}Category Details{% endblock %}
-{% block body_block %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Category Details</title>
+</head>
+<body>
     <h2>Category: {{ category.name }}</h2>
     <p>Warehouse: {{ category.warehouse }}</p>
     <h3>Products:</h3>
@@ -10,4 +14,5 @@
         {% endfor %}
     </ul>
     <p><a href="{% url 'myapp:index' %}">Back to Home</a></p>
-{% endblock %}
+</body>
+</html>

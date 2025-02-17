@@ -1,5 +1,10 @@
-{% extends 'myapp/base.html' %}
-{% block body_block %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Online Store APP</title>
+</head>
+<body>
     {% if cat_list %}
         <h2>List of Categories</h2>
         <ol>
@@ -10,4 +15,6 @@
     {% else %}
         <strong>No categories available!</strong>
     {% endif %}
-{% endblock %}
+    <p><a href="{% url 'myapp:about' %}">About page</a></p>
+</body>
+</html>
