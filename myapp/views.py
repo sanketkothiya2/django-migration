@@ -16,9 +16,20 @@ def about(request):
 
 def detail(request, cat_no):
     category = get_object_or_404(Category, id=cat_no)
+
+    category = Category.objects.filter(id=cat_no).first()  # Ensures category is always defined
+
+    # Check if category exists before using it
+    if category is None:
+        return HttpResponse("<h1>Category not found</h1>")  # Instead of 404, show a message
+
+    # Retrieve all products that belong to the selected category
     products = Product.objects.filter(category=category)
     context = {
         'category': category,
-        'products': products
+        'products': products,
+
+
     }
+    print(context)
     return render(request, 'myapp/detail.html', context)
