@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Product Detail - {{ product.name }}{% endblock %}
+
+{% block body_block %}
+    <div class="product-detail">
+        <h2>{{ product.name }}</h2>
+        
+        {% if product.available %}
+            <p class="price">Price: ${{ product.price }}</p>
+            <p class="interested-count">Number of people interested: {{ product.interested }}</p>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit Interest</button>
+            </form>
+        {% else %}
+            <p class="not-available">Sorry, this product is currently not available.</p>
+        {% endif %}
+
+        <p><a href="{% url 'myapp:products' %}">← Back to Products</a></p>
+    </div>
+{% endblock %}

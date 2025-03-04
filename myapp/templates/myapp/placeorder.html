@@ -1,0 +1,48 @@
+{% extends 'myapp/base.html' %}
+
+{% block body_block %}
+    <div class="place-order-form">
+        <h2>Available Products</h2>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+            {% for product in prodlist %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>${{ product.price }}</td>
+                <td>{{ product.stock }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Place Your Order</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>{{ form.client.label }}:</label>
+                <div class="radio-group">
+                    {{ form.client }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.product.label }}:</label>
+                {{ form.product }}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.num_units.label }}:</label>
+                {{ form.num_units }}
+            </div>
+
+            <button type="submit" class="place-order-btn">Place Order</button>
+        </form>
+
+        {% if msg %}
+            <p class="message">{{ msg }}</p>
+        {% endif %}
+    </div>
+{% endblock %}

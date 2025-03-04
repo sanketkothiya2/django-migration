@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Order Status{% endblock %}
+
+{% block body_block %}
+    <div class="order-response">
+        <h2>Order Status</h2>
+        {% if msg %}
+            <p class="message">{{ msg }}</p>
+        {% endif %}
+        <p><a href="{% url 'myapp:products' %}">Back to Products</a></p>
+    </div>
+{% endblock %}
