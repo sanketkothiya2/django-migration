@@ -1,7 +1,6 @@
 from django import forms
 from myapp.models import Order
 
-
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -13,7 +12,6 @@ class OrderForm(forms.ModelForm):
             'num_units': 'Quantity',
             'client': 'Client Name',
         }
-
 
 class InterestForm(forms.Form):
     INTEREST_CHOICES = [

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders</title>
+</head>
+<body>
+    <h2>My Orders</h2>
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+                <li>Order ID: {{ order.id }} - Product: {{ order.product.name }} - Quantity: {{ order.num_units }} - Status: {{ order.get_order_status_display }} - Date: {{ order.status_date }}</li>
+            {% endfor %}
+        </ul>
+    {% elif message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
