@@ -1,0 +1,37 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block body_block %}
+<h1>My Orders</h1>
+<div class="orders-container">
+    {% if orders %}
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Order Status</th>
+                    <th>Status Date</th>
+                    <th>Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.product.name }}</td>
+                    <td>{{ order.num_units }}</td>
+                    <td>{{ order.get_order_status_display }}</td> <!-- Correct method to display status -->
+                    <td>{{ order.status_date|date:"F d, Y" }}</td>
+                    <td>${{ order.total_cost }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You have not placed any orders.</p>
+    {% endif %}
+</div>
+{% endblock %}

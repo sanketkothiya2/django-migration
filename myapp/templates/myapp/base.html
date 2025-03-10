@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Online Store{% endblock %}</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}">
 </head>
 <body>
-
     <header>
         <h1>{% block myhdg %}Hello Group - 7{% endblock %}</h1>
         <nav>
@@ -16,8 +15,16 @@
                 <li><a href="{% url 'myapp:index' %}">Home</a></li>
                 <li><a href="{% url 'myapp:about' %}">About</a></li>
                 <li><a href="{% url 'myapp:products' %}">Products</a></li>
+                <li><a href="{% url 'myapp:myorders' %}">My Orders</a></li>
+                <li><a href="{% url 'myapp:logout' %}">Logout</a></li>
             </ul>
         </nav>
+        <div class="theme-toggle">
+            <label>
+                <input type="checkbox" id="theme-switch">
+                Dark Mode
+            </label>
+        </div>
     </header>
 
     <div class="container">
@@ -36,5 +43,24 @@
         <p>&copy; 2025 Online Store</p>
     </footer>
 
+    <script>
+        const themeSwitch = document.getElementById('theme-switch');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeSwitch.checked = true;
+        }
+
+        themeSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
 </body>
 </html>
